@@ -41,8 +41,10 @@ Since there is a certain time interval between the occurrence of inversion and t
 #### Drop NaN
 In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Considering the issue of statistical caliber of data, we believe that it is unreasonable to use other methods of data to integrate. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
 #### Standardization
+Through descriptive analysis results, we found that different yield values are different in size. In order to eliminate the model result error caused by the size of the data itself, we standardized the data.
 #### up-sampling 
-
+Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. 
+    1.dafadf
 ## Training Model and Predicting
 #### Choosing ML Models and Lags
 
