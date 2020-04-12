@@ -52,7 +52,7 @@ Considering that economic recession is an unconventional situation, we need to c
 
 
 ## Conclusion
-
+Through the model results, we found that the effect of T-5 is similar as that of T-10. Considering the inputand model efficiency, we chose T-5, which means the spread lags 5 weeks. After processing the data, we used the LR, Tree, and SVC models to predict the future economic situation. The Tree model works best. We found that a inverted yield is indeed a good indicator for predicting recession. The invertion is basically accompanied by the recession one year later. However, the results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the accurate time.
 ## Improvement in the future
 
 ## Reference
