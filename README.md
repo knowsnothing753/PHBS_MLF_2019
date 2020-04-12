@@ -13,7 +13,7 @@ For now, our raw data has the daily and monthly yield of US tresury bonds with d
 ![bond yeild](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/bond%20yield.png)
 The data presents a significant size gap. The longer the term, the greater the yield, so we standardized the data.
 By dividing the indicator of whether the economy is depressed, we draw a boxplot of different interest spreads. It can be seen from the figure that the spread of the two sets of data with and without depression shows a large gap, even no overlapping. This is an intuitive result that shows that the interest rate differential will indeed affect the economic situation.
-![boxplot](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/boxplot.png)
+![description](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/description.png)
 ## Feature Engineering
 #### Interest rate spread Generating
 We use the weekly frequency of 1962.1.6-2007.12.29, the interest rate period is 3 months, 1 year, 10 years, 20 years of the US Treasury bond rate, to match the several depressions provided on NBER.
