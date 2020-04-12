@@ -43,8 +43,7 @@ In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Consi
 #### Standardization
 Through descriptive analysis results, we found that different yield values are different in size. In order to eliminate the model result error caused by the size of the data itself, we standardized the data.
 #### up-sampling 
-Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. 
-    1.dafadf
+Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
 ## Training Model and Predicting
 #### Choosing ML Models and Lags
 
