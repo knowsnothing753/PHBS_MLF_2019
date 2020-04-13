@@ -67,32 +67,38 @@ Variable name | Explaination
 LABEL | Output, indicating whether there will be a recession within 52 weeks
 13weeks, 26weeks, 39weeks, 52weeks | Split the *LABLE* output into	quaterly data using dummy variable
 ## Preprocessing
-#### Drop NaN
-In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Considering the issue of statistical caliber of data, we believe that it is unreasonable to use other methods of data to integrate. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
+#### Dropping NaN
+In the data, the data of 20-year bond yield from 1987 to 1989 are missing. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
 #### Standardization
 Through descriptive analysis results, we found that different yield values are different in size. In order to eliminate the model result error caused by the size of the data itself, we standardized the data.
 #### Up-sampling 
-Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
+Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the number of samples related recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
 ## Training Model and Predicting
 #### Choosing ML Models and Lags
-We choose three models(LR,SVM and Tree). And we use CV accuracy, F1 score and confusion matrix to assess model performance.
+We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
 Scenario 1: 
-Input: 4 sets of interest spreads: 3 months-10 years, 3 months-20 years, 1 year-10 years, 1 year-20 years.And US Treasury bond rate, duration of inversion and lag term generating from T to T-5 related to these 4 sets of interest spreads.
+Input: 4 types of yeild with different maturities 
+       4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.
+       corresponding lag term for each spread form T-1 to T-5 
+       duration of inversion for each spread
 Output:
 ![T5_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T5_4.PNG)
 
 Scenario 2: 
-Input: 4 sets of interest spreads: 3 months-10 years, 3 months-20 years, 1 year-10 years, 1 year-20 years.And US Treasury bond rate, duration of inversion and lag term generating from T to T-10 related to these 4 sets of interest spreads.
+Input: 4 types of yeild with different maturities 
+       4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.
+       corresponding lag term for each spread form T-1 to T-10 
+       duration of inversion for each spread
 Output:
 ![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
 
 When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
 ![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/10vs5.PNG)
-When we compare the results between the 2 scenarios.The results of scenario2 is always better than scenario1, which means T-10(the spread lags 10 weeks) performs better.
+When we compare the results between the 2 scenarios.The results of scenario 2 is always better than scenario 1, which means T-10(the spread lags up to 10 weeks) performs better.
 
-#### Different Spread
-We also compare the results between different spread. Besides taking all 4 sets of interest spreads as input, we also take each of 4 sets of interest spreads as inuput individually.
+#### Different term spread
+We also compare the results between different term spread，i.e., we take only one set of term spread as inuput at a time. For example, we first take 
 ![5Scen](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/5Scen.PNG)
 
 #### Multi-dimensional Output 
