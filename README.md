@@ -59,7 +59,8 @@ March 2001(I)<br>
 December 2007 (IV)
 
 We then count the interval between the start time of the inversion and the start time of nearest recession afterward.The average value of the 7 intervals is about 48 weeks, and we round it up to take a complete integer year or 52 weeks. So we believe the interest rates pattern within 52 weeks before a recession have predictive power. Next, we mark the samples within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling.
-![Output](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/Output.PNG)
+![Output](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/Output)
+
 Here's our output variable.
 Variable name | Explaination
 ------------ | -------------
