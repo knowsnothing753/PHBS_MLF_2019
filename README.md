@@ -29,9 +29,9 @@ Feature | Explaination
 LABEL | Output, indicating if the current interest structure shows certain characteristic associated with recession (introduced in detail below)
 13weeks, 26weeks, 39weeks, 52weeks | Split the *label* output into	quaterly data using dummy variable
 time0_10, time1_20, time1_10, time0_20 | Duration of inversion within each interest spread. *0* indicating 3 months, 1 indicating 1 year, 10 indicating 10 year, 20 indicating 20 year. For example, time0_10 stands for spread between 10-year interest rate and 3-month interst-rate  
-10y-3m, 20y-1y, 10y-1y, 20y-3m | Original interest spread 
+10y-3m,  20y-1y,  10y-1y,  20y-3m | Original interest spread 
 x_0.25, x_1, x_10, x_20 | Original interest of 3-month, 1-year, 10-year and 20-year respectively.
-x_10_0_n, x_20_1_n,	x_10_1_n,	x_20_0_n | The lag term. N indicating T-N
+x_10_0_n, x_20_1_n,	x_10_1_n,	x_20_0_n | The lag term where n indicating T-N
 
 ## Output description
 Data processing of output is a challenging problem we face. We mainly face two problems.
