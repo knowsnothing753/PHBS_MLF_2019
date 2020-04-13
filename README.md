@@ -24,12 +24,14 @@ For each original interest rate and 4 sets of interest spreads, we generate lag 
 #### Duration of inversion
 We counted the duration of each inversion and included this feature in each sample to reflect which stage the current sample is in the entire inverted curve. In this feature, 0 represents that it is currently in the positive spread range, and a positive integer indicates that how many weeks it has entered the negative spread period.
 ## Input description
-Student Number | Github ID
+Feature | Explaination
 ------------ | -------------
 LABEL | Output, indicating if the current interest structure shows certain characteristic associated with recession (introduced in detail below)
 13weeks,26weeks,39weeks,52weeks | Split the *label* output into	quaterly data using dummy variable
-time0_10	time1_20	time1_10	time0_20	
-10y-3m	20y-1y	10y-1y	20y-3m	x_0.25	x_1	x_10	x_20	x_10_0_1	x_10_0_2	x_10_0_3	x_10_0_4	x_10_0_5	x_10_0_6	x_10_0_7	x_10_0_8	x_10_0_9	x_10_0_10	x_20_1_1	x_20_1_2	x_20_1_3	x_20_1_4	x_20_1_5	x_20_1_6	x_20_1_7	x_20_1_8	x_20_1_9	x_20_1_10	x_10_1_1	x_10_1_2	x_10_1_3	x_10_1_4	x_10_1_5	x_10_1_6	x_10_1_7	x_10_1_8	x_10_1_9	x_10_1_10	x_20_0_1	x_20_0_2	x_20_0_3	x_20_0_4	x_20_0_5	x_20_0_6	x_20_0_7	x_20_0_8	x_20_0_9	x_20_0_10
+time0_10	time1_20	time1_10	time0_20 | Duration of inversion within each interest spread. *0* indicating 3 months, 1 indicating 1 year, 10 indicating 10 year, 20 indicating 20 year. For example, time0_10 stands for spread between 10-year interest rate and 3-month interst-rate  
+10y-3m	20y-1y	10y-1y	20y-3m | Original interest spread 
+x_0.25	x_1	x_10	x_20 | Original interest of 3-month, 1-year, 10-year and 20-year respectively.
+x_10_0_n, x_20_1_n,	x_10_1_n,	x_20_0_n | The lag term. N indicating T-N
 
 ## Output description
 Data processing of output is a challenging problem we face. We mainly face two problems.
