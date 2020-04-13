@@ -65,7 +65,7 @@ Here's our output variable.
 Variable name | Explaination
 ------------ | -------------
 LABEL | Output, indicating whether there will be a recession within 52 weeks
-13weeks, 26weeks, 39weeks, 52weeks | Split the *label* output into	quaterly data using dummy variable
+13weeks, 26weeks, 39weeks, 52weeks | Split the *LABLE* output into	quaterly data using dummy variable
 ## Preprocessing
 #### Drop NaN
 In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Considering the issue of statistical caliber of data, we believe that it is unreasonable to use other methods of data to integrate. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
