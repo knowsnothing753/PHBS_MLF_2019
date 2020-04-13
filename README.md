@@ -79,13 +79,13 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
 
 * Scenario 1: lag up to T-5  
 
->Input:  
->>4 types of yeild with different maturities  
->>4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.  
->>corresponding lag term for each spread form T-1 to T-5   
->>duration of inversion for each spread  
+  * Input:   
+    * 4 types of yeild with different maturities  
+    * 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.  
+    * corresponding lag term for each spread form T-1 to T-5   
+    * duration of inversion for each spread  
 
->Output:
+  * Output:
 ![T5_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T5_4.PNG)
 
 * Scenario 2: lag up to T-10    
@@ -96,7 +96,7 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
     * corresponding lag term for each spread form T-1 to T-10  
     * duration of inversion for each spread  
 
->Output:
+  * Output:
 ![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
 
 * When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
