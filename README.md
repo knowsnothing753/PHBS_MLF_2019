@@ -9,7 +9,7 @@ Student Number | Github ID
 ## Goal of the project
 An inverted yield curve often signals an impending recession in the past few decades in the U.S. Therefore, we speculate that an inverted yield curve may be a key indicator for predicting recession. We tried to find the relationship between the term structure of interest rates and recession. We'd like to use the yield of the US tresury bonds to predict whether there will be a recession in the future and hope to construct a model that can estimate the exact time of the recession based on yield curve. 
 ## Data description
-For now, our raw data has the daily and monthly yield of US tresury bonds with different maturities. 
+For now, our raw data is the weekly yield of US tresury bonds with different maturities. 
 ![bond yeild](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/bond%20yield.png)
 The data presents a significant size gap. The longer the term, the greater the yield, so we standardized the data.
 By dividing the indicator of whether the economy is depressed, we draw a boxplot of different interest spreads. It can be seen from the figure that the spread of the two sets of data with and without depression shows a large gap, even no overlapping. This is an intuitive result that shows that the interest rate differential will indeed affect the economic situation.
