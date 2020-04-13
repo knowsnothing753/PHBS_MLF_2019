@@ -27,11 +27,11 @@ We also counted the duration of each inversion and included this feature in each
 Feature name | Explaination
 ------------ | -------------
 x_0.25, x_1, x_10, x_20 | Original yield with maturity of 3 months, 1 year, 10 years and 20 years
-10y-3m, 20y-1y, 10y-1y, 20y-3m | interest term spread without lagging
-x_10_0_n | The lag term of 10y-3m, n means T-n term
-x_10_1_n | The lag term of 10y-1y, n means T-n term
-x_20_0_n | The lag term of 20y-3m, n means T-n term
-x_20_1_n | The lag term of 20y-1y, n means T-n term
+10y-3m, 20y-1y, 10y-1y, 20y-3m | Interest term spread without lagging
+x_10_0_n | The lag term of 10y-3m, n can be 1,2...10, meaning T-n term 
+x_10_1_n | The lag term of 10y-1y, n can be 1,2...10, meaning T-n term
+x_20_0_n | The lag term of 20y-3m, n can be 1,2...10, meaning T-n term
+x_20_1_n | The lag term of 20y-1y, n can be 1,2...10, meaning T-n term
 time10_0 | Duration weeks of inversion of 10y-3m
 time10_1 | Duration weeks of inversion of 10y-1y
 time20_0 | Duration weeks of inversion of 20y-3m
@@ -68,7 +68,7 @@ LABEL | Output, indicating if the current interest structure shows certain chara
 In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Considering the issue of statistical caliber of data, we believe that it is unreasonable to use other methods of data to integrate. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
 #### Standardization
 Through descriptive analysis results, we found that different yield values are different in size. In order to eliminate the model result error caused by the size of the data itself, we standardized the data.
-#### up-sampling 
+#### Up-sampling 
 Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
 ## Training Model and Predicting
 #### Choosing ML Models and Lags
@@ -103,3 +103,4 @@ After processing the data, we used the LR, Tree, and SVC models to predict the f
 * We will continue to improve the results of multi-dimensional output, clarify the problems of the current model, and try to build a model that can accurately predict the occurrence time of the recession.
 * Adjust the hyperparameters of the model through Grid Research to improve the prediction accuracy.
 ## Reference
+Yield curve inversion: a recession indicator: https://github.com/PHBS/MLF/wiki/Yield-curve-inversion:-a-recession-indicator
