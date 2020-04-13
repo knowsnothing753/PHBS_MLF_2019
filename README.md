@@ -77,10 +77,10 @@ Considering that economic recession is an unconventional situation, we need to c
 #### Choosing ML Models and Lags
 We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
-Scenario 1:  
+* Scenario 1:  
 
-* Input:  
-           4 types of yeild with different maturities  
+>Input:  
+>>4 types of yeild with different maturities  
           * 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.  
           * corresponding lag term for each spread form T-1 to T-5   
           * duration of inversion for each spread  
