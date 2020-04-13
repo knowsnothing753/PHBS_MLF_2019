@@ -15,12 +15,12 @@ The data presents a significant size gap. The longer the term, the greater the y
 By dividing the indicator of whether the economy is depressed, we draw a boxplot of different interest spreads. It can be seen from the figure that the spread of the two sets of data with and without depression shows a large gap, even no overlapping. This is an intuitive result that shows that the interest rate differential will indeed affect the economic situation.
 ![description](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/description.png)
 ## Feature engineering
-#### Interest rate term spread Generating
-We use the US Treasury bond rate with periods of 3 months, 1 year, 10 years and 20 years of 1962.1.6-2007.12.29.  
-We combine the short-term and long-term separately to get 4 sets of interest spreads: 3 months-10 years, 3 months-20 years, 1 year-10 years, 1 year-20 years.
+#### Term spread Generating
+We use the US Treasury bond rate with maturity of 3 months, 1 year, 10 years and 20 years of 1962.1.6-2007.12.29.  
+We combine the short-term and long-term separately to get 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.
 #### Lag Term Generating
-Unlike the common classification problems, in our case with inversion and recession, each sample data is not independent. The support of historical data is required to better reflect the current interest rate structure.
-For each original interest rate and 4 sets of interest spreads, we generate lag items from T to T-10 for each weekly sample to provide historical data. In this way, the impact of historical data is included in each independent sample. In the following analysis and model, two groups of data from T to T-5 and T to T-10 are respectively collected to compare the influence of historical data length on the model.
+Unlike the common classification problems, in our case with inversion and recession, each sample data is not independent. The historical data is required to better reflect the current interest rate structure.
+For the 4 sets of interest term spreads, we generate lag items for each sample from T-1 to T-10 to provide historical data up to 10 weeks ago. In this way, the impact of historical data is included in each independent sample. In the following analysis , two groups of lagged data——T to T-5 and T to T-10——are respectively generated to compare the influence of different lag terms.
 #### Duration of inversion
 We counted the duration of each inversion and included this feature in each sample to reflect which stage the current sample is in the entire inverted curve. In this feature, 0 represents that it is currently in the positive spread range, and a positive integer indicates that how many weeks it has entered the negative spread period.
 ## Input description
