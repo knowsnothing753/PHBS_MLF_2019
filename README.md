@@ -56,7 +56,7 @@ Output:
 Scenario 2: 
 Input: 4 sets of interest spreads: 3 months-10 years, 3 months-20 years, 1 year-10 years, 1 year-20 years.And US Treasury bond rate, duration of inversion and lag term generating from T to T-10 related to these four sets of interest spreads.
 Output:
-![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.png)
+![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
 
 When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
 When we compare the results between the 2 scenarios.The results of scenario2 is always better than scenario1, which means T-10(the spread lags 10 weeks) performs better.
