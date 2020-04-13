@@ -47,11 +47,11 @@ In simple terms, if certain economic indicators (such as GDP) have declined sign
 
 Since there is a certain time interval between the occurrence of inversion and the beginning of recession, that is, the current inversion has a lagging effect on the prediction of recession, we have reason to believe that the interest rate for a period before recession will be different from the non-depression period. Structural features. Therefore, we adopt the following scheme. We counted the interval between the start time of each recession and the start time of the latest inversion. There were 7 recessions in the sample statistical period showing below.
 > December 1969(IV)<br>
-November 1973(IV)
-January 1980(I)
-July 1981(III)
-July 1990(III)
-March 2001(I)
+November 1973(IV)<br>
+January 1980(I)<br>
+July 1981(III)<br>
+July 1990(III)<br>
+March 2001(I)<br>
 December 2007 (IV)
 
 The average value of the 7 time intervals is about 48. We round it up to take a complete integer year and 52 Week is the time interval for the final division output. Mark the sample within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling. (In order to fully reflect this information, we set a feature on the input to record the duration of inversion)
