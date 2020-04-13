@@ -77,29 +77,32 @@ Considering that economic recession is an unconventional situation, we need to c
 #### Choosing ML Models and Lags
 We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
-* Scenario 1:  
+* Scenario 1: lag up to T-5  
 
 >Input:  
 >>4 types of yeild with different maturities  
 >>4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.  
 >>corresponding lag term for each spread form T-1 to T-5   
 >>duration of inversion for each spread  
+
 >Output:
 ![T5_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T5_4.PNG)
 
-* Scenario 2:  
+* Scenario 2: lag up to T-10    
 
 >Input:  
 >>4 types of yeild with different maturities   
 >>4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year  
 >>corresponding lag term for each spread form T-1 to T-10  
 >>duration of inversion for each spread  
-Output:
+
+>Output:
 ![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
 
-When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
+* When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
+
+* When we compare the results between the 2 scenarios.The results of scenario 2 is always better than scenario 1, which means T-10(the spread lags up to 10 weeks) performs better.
 ![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/10vs5.PNG)
-When we compare the results between the 2 scenarios.The results of scenario 2 is always better than scenario 1, which means T-10(the spread lags up to 10 weeks) performs better.
 
 #### Different term spread
 We also compare the results between different term spread，i.e., we take only one set of term spread as inuput at a time. Specifically, we first take 10 years-3 months term spread and its corresponding lag term and duration of inversion as input to get one result, then 10 years-1 year, 20 years-3 months, and 20 years-1 year.
