@@ -114,7 +114,11 @@ Output of 2 scenarios (T-5, T-10):
 ![multi_cm](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/multi_cm.PNG)
 The results of the multi-dimensional output is not good. It shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the accurate time.
 ## Conclusion
-After processing the data, we used the LR, Tree, and SVC models to predict the future economic situation. The Tree model works best. Through the model results, we found that the effect of T-10 is better than T-5. So, we chose T-10, which means the spread lags 10 weeks.We found that a inverted yield is indeed a good indicator for predicting recession. The invertion is basically accompanied by the recession one year later. However, the results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the accurate time.
+* The Tree model works better than LR and SVM. 
+* The model with up to T-10 term spread lag is better than T-5. 
+* the 10 years-1 year pair works better than othe spread term.
+* The invertion is basically accompanied by the recession one year later. 
+* The results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the specific quarter.
 ## Improvement in the future
 * We will continue to improve the results of multi-dimensional output, clarify the problems of the current model, and try to build a model that can accurately predict the occurrence time of the recession.
 * Adjust the hyperparameters of the model through Grid Research to improve the prediction accuracy.
