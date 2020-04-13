@@ -49,7 +49,7 @@ According to NBER's definition of recession:
 
 In simple terms, if certain economic indicators (such as GDP) have declined significantly for several consecutive months, it is defined as a depression. Then, by screening the two criteria—the change rate of the economic index and the duration of the rise or fall—a complete economic cycle can be divided into several intervals and marked with integers such as 1, 2, 3, etc to reflect which stage of the entire economic cycle the current interest rate structure corresponds to. However, it still cannot effectively solve the problem of data imbalance. According to these two criteria, the number of samples corresponding to the rising or flat period will be significantly higher than the number of samples during the depression period. An alternative method is to mark the entire economic cycle equally in time, but this will result in the inability to effectively distinguish between depression and non-depression periods.
 
-Since there is a certain time interval between the occurrence of inversion and the beginning of recession, that is, the current inversion has a lagging effect on the prediction of recession, we have reason to believe that the interest rate for a period before recession will be different from the non-depression period. Structural features. Therefore, we adopt the following scheme. We counted the interval between the start time of the inversion and the start time of nearest recession afterward. There were 7 recessions in the sample statistical period showing below.(https://www.nber.org/cycles/)
+Since there is a certain time interval between the occurrence of inversion and the beginning of recession, that is, the current inversion has a lagging effect on the prediction of recession, we have reasons to believe that the interest rate for a period before recession will have a different pattern from the non-depression period. Therefore, we adopt the following scheme. We first collect the start time of the total 7 recessions in the sample covering period showing below.(https://www.nber.org/cycles/)
 > December 1969(IV)<br>
 November 1973(IV)<br>
 January 1980(I)<br>
@@ -58,10 +58,12 @@ July 1990(III)<br>
 March 2001(I)<br>
 December 2007 (IV)
 
-The average value of the 7 time intervals is about 48. We round it up to take a complete integer year and 52 Week is the time interval for the final division output. Mark the sample within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling. (In order to fully reflect this information, we set a feature on the input to record the duration of inversion)
+We then count the interval between the start time of the inversion and the start time of nearest recession afterward.The average value of the 7 intervals is about 48 weeks, and we round it up to take a complete integer year or 52 weeks. So we believe the interest rates pattern within 52 weeks before a recession have predictive power. Next, we mark the samples within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling.
+
+Here's our output variable.
 Variable name | Explaination
 ------------ | -------------
-LABEL | Output, indicating if the current interest structure shows certain characteristic associated with recession (introduced in detail below)
+LABEL | Output, indicating whether there will be a recession within 52 weeks
 13weeks, 26weeks, 39weeks, 52weeks | Split the *label* output into	quaterly data using dummy variable
 ## Preprocessing
 #### Drop NaN
