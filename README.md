@@ -63,7 +63,7 @@ When we compare the results between the three models under 2 scenarios,  CV accu
 When we compare the results between the 2 scenarios.The results of scenario2 is always better than scenario1, which means T-10(the spread lags 10 weeks) performs better.
 
 #### Different Spread
-We also compare the results between different Spread. Besides taking all 4 sets of interest spreads as input, we also take each of 4 sets of interest spreads as inuput individually.
+We also compare the results between different spread. Besides taking all 4 sets of interest spreads as input, we also take each of 4 sets of interest spreads as inuput individually.
 ![5Scen](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/5Scen.PNG)
 
 #### Multi-dimensional Output 
