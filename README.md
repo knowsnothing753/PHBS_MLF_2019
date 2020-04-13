@@ -90,11 +90,11 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
 
 * Scenario 2: lag up to T-10    
 
->Input:  
->>4 types of yeild with different maturities   
->>4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year  
->>corresponding lag term for each spread form T-1 to T-10  
->>duration of inversion for each spread  
+  * Input:  
+    * 4 types of yeild with different maturities   
+    * 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year  
+    * corresponding lag term for each spread form T-1 to T-10  
+    * duration of inversion for each spread  
 
 >Output:
 ![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
@@ -123,4 +123,4 @@ The results of the multi-dimensional output is not good. It shows that the inver
 * We will continue to improve the results of multi-dimensional output, clarify the problems of the current model, and try to build a model that can accurately predict the occurrence time of the recession.
 * Adjust the hyperparameters of the model through Grid Research to improve the prediction accuracy.
 ## Reference
-Yield curve inversion: a recession indicator: https://github.com/PHBS/MLF/wiki/Yield-curve-inversion:-a-recession-indicator
+Yield curve inversion: a recession indicator. from https://github.com/PHBS/MLF/wiki/Yield-curve-inversion:-a-recession-indicator
