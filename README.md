@@ -24,6 +24,8 @@ For each original interest rate and 4 sets of interest spreads, we generate lag 
 #### Duration of inversion
 We counted the duration of each inversion and included this feature in each sample to reflect which stage the current sample is in the entire inverted curve. In this feature, 0 represents that it is currently in the positive spread range, and a positive integer indicates that how many weeks it has entered the negative spread period.
 ## Input description
+Student Number | Github ID
+------------ | -------------
 LABEL | Output, indicating if the current interest structure shows certain characteristic associated with recession (introduced in detail below)
 13weeks,26weeks,39weeks,52weeks | Split the *label* output into	quaterly data using dummy variable
 time0_10	time1_20	time1_10	time0_20	
