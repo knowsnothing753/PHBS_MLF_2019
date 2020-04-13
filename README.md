@@ -59,40 +59,53 @@ March 2001(I)<br>
 December 2007 (IV)
 
 We then count the interval between the start time of the inversion and the start time of nearest recession afterward.The average value of the 7 intervals is about 48 weeks, and we round it up to take a complete integer year or 52 weeks. So we believe the interest rates pattern within 52 weeks before a recession have predictive power. Next, we mark the samples within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling.
-![Output](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/Output.PNG)
+![Output](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/Output.png)
 
 Here's our output variable.
 Variable name | Explaination
 ------------ | -------------
 LABEL | Output, indicating whether there will be a recession within 52 weeks
-13weeks, 26weeks, 39weeks, 52weeks | Split the *label* output into	quaterly data using dummy variable
+13weeks, 26weeks, 39weeks, 52weeks | Split the *LABLE* output into	quaterly data using dummy variable
 ## Preprocessing
-#### Drop NaN
-In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Considering the issue of statistical caliber of data, we believe that it is unreasonable to use other methods of data to integrate. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
+#### Dropping NaN
+In the data, the data of 20-year bond yield from 1987 to 1989 are missing. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
 #### Standardization
 Through descriptive analysis results, we found that different yield values are different in size. In order to eliminate the model result error caused by the size of the data itself, we standardized the data.
 #### Up-sampling 
-Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
+Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the number of samples related recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
 ## Training Model and Predicting
 #### Choosing ML Models and Lags
-We choose three models(LR,SVM and Tree). And we use CV accuracy, F1 score and confusion matrix to assess model performance.
+We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
-Scenario 1: 
-Input: 4 sets of interest spreads: 3 months-10 years, 3 months-20 years, 1 year-10 years, 1 year-20 years.And US Treasury bond rate, duration of inversion and lag term generating from T to T-5 related to these 4 sets of interest spreads.
-Output:
+* Scenario 1: lag up to T-5  
+
+  * Input:   
+    * 4 types of yeild with different maturities  
+    * 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.  
+    * corresponding lag term for each spread form T-1 to T-5   
+    * duration of inversion for each spread  
+
+  * Output:
 ![T5_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T5_4.PNG)
 
-Scenario 2: 
-Input: 4 sets of interest spreads: 3 months-10 years, 3 months-20 years, 1 year-10 years, 1 year-20 years.And US Treasury bond rate, duration of inversion and lag term generating from T to T-10 related to these 4 sets of interest spreads.
-Output:
+* Scenario 2: lag up to T-10    
+
+  * Input:  
+    * 4 types of yeild with different maturities   
+    * 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year  
+    * corresponding lag term for each spread form T-1 to T-10  
+    * duration of inversion for each spread  
+
+  * Output:
 ![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
 
-When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
-![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/10vs5.PNG)
-When we compare the results between the 2 scenarios.The results of scenario2 is always better than scenario1, which means T-10(the spread lags 10 weeks) performs better.
+* When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
 
-#### Different Spread
-We also compare the results between different spread. Besides taking all 4 sets of interest spreads as input, we also take each of 4 sets of interest spreads as inuput individually.
+* When we compare the results between the 2 scenarios.The results of scenario 2 is always better than scenario 1, which means T-10(the spread lags up to 10 weeks) performs better.
+![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/10vs5.PNG)
+
+#### Different term spread
+We also compare the results between different term spread，i.e., we take only one set of term spread as inuput at a time. Specifically, we first take 10 years-3 months term spread and its corresponding lag term and duration of inversion as input to get one result, then 10 years-1 year, 20 years-3 months, and 20 years-1 year.
 ![5Scen](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/5Scen.PNG)
 
 #### Multi-dimensional Output 
@@ -101,9 +114,13 @@ Output of 2 scenarios (T-5, T-10):
 ![multi_cm](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/multi_cm.PNG)
 The results of the multi-dimensional output is not good. It shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the accurate time.
 ## Conclusion
-After processing the data, we used the LR, Tree, and SVC models to predict the future economic situation. The Tree model works best. Through the model results, we found that the effect of T-10 is better than T-5. So, we chose T-10, which means the spread lags 10 weeks.We found that a inverted yield is indeed a good indicator for predicting recession. The invertion is basically accompanied by the recession one year later. However, the results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the accurate time.
+* The Tree model works better than LR and SVM. 
+* The model with up to T-10 term spread lag is better than T-5. 
+* the 10 years-1 year pair works better than othe spread term.
+* The invertion is basically accompanied by the recession one year later. 
+* The results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the specific quarter.
 ## Improvement in the future
 * We will continue to improve the results of multi-dimensional output, clarify the problems of the current model, and try to build a model that can accurately predict the occurrence time of the recession.
 * Adjust the hyperparameters of the model through Grid Research to improve the prediction accuracy.
 ## Reference
-Yield curve inversion: a recession indicator: https://github.com/PHBS/MLF/wiki/Yield-curve-inversion:-a-recession-indicator
+Yield curve inversion: a recession indicator. from https://github.com/PHBS/MLF/wiki/Yield-curve-inversion:-a-recession-indicator
