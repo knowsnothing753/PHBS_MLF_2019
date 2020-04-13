@@ -62,11 +62,6 @@ December 2007 (IV)
 We then count the interval between the start time of the inversion and the start time of nearest recession afterward.The average value of the 7 intervals is about 48 weeks, and we round it up to take a complete integer year or 52 weeks. So we believe the interest rates pattern within 52 weeks before a recession have predictive power. Next, we mark the samples within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling.
 ![Output](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/Output.png)
 
-Here's our output variable.
-Variable name | Explaination
------------- | -------------
-LABEL | Output, indicating whether there will be a recession within 52 weeks
-13weeks, 26weeks, 39weeks, 52weeks | Split the *LABLE* output into	quaterly data using dummy variable
 ## Preprocessing
 #### Dropping NaN
 In the data, the data of 20-year bond yield from 1987 to 1989 are missing. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
