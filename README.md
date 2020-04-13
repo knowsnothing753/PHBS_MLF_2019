@@ -9,7 +9,7 @@ Student Number | Github ID
 ## Goal of the project
 An inverted yield curve often signals an impending recession in the past few decades in the U.S. Therefore, we speculate that an inverted yield curve may be a key indicator for predicting recession. We tried to find the relationship between the term structure of interest rates and recession. We'd like to use the yield of the US tresury bonds to predict whether there will be a recession in the future and hope to construct a model that can estimate the exact time of the recession based on yield curve. 
 ## Data description
-For now, our raw data is the weekly yield of US tresury bonds with different maturities. 
+Our raw data is the weekly yield of US tresury bonds with different maturities. 
 ![bond yeild](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/bond%20yield.png)
 The data presents a significant size gap. The longer the term, the greater the yield, so we standardized the data.
 By dividing the indicator of whether the economy is depressed, we draw a boxplot of different interest spreads. It can be seen from the figure that the spread of the two sets of data with and without depression shows a large gap, even no overlapping. This is an intuitive result that shows that the interest rate differential will indeed affect the economic situation.
@@ -20,7 +20,7 @@ We use the US Treasury bond rate with maturity of 3 months, 1 year, 10 years and
 We combine the short-term and long-term separately to get 4 sets of term spreads: 10 years-3 months, 10 years-1 year, 20 years-3 months, 20 years-1 year.
 #### Lag Term Generating
 Unlike the common classification problems, in our case with inversion and recession, each sample data is not independent. The historical data is required to better reflect the current interest rate structure.
-For the 4 sets of interest term spreads, we generate lag items for each sample from T-1 to T-10 to provide historical data up to 10 weeks ago. In this way, the impact of historical data is included in each independent sample. In the following analysis , two groups of lagged data——T to T-5 and T to T-10——are respectively generated to compare the influence of different lag terms.
+For the 4 sets of interest term spreads, we generate lag items for each sample from T-1 to T-10 to provide historical data up to 10 weeks ago. In this way, the impact of historical data is included in each independent sample. In the following analysis , two groups of lagged data—T to T-5 and T to T-10—are respectively generated to compare the influence of different lag terms.
 #### Duration of inversion
 We counted the duration of each inversion and included this feature in each sample to reflect which stage the current sample is in the entire inverted curve. In this feature, 0 represents that it is currently in the positive spread range, and a positive integer indicates that how many weeks it has entered the negative spread period.
 ## Input description
