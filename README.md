@@ -59,8 +59,8 @@ Output:
 ![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/T10_4.PNG)
 
 When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
-When we compare the results between the 2 scenarios.The results of scenario2 is always better than scenario1, which means T-10(the spread lags 10 weeks) performs better.
 ![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/10vs5.PNG)
+When we compare the results between the 2 scenarios.The results of scenario2 is always better than scenario1, which means T-10(the spread lags 10 weeks) performs better.
 
 #### Different Spread
 We also compare the results between different Spread. Besides taking all 4 sets of interest spreads as input, we also take each of 4 sets of interest spreads as inuput individually.
