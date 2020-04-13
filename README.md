@@ -22,16 +22,20 @@ We combine the short-term and long-term separately to get 4 sets of term spreads
 Unlike the common classification problems, in our case with inversion and recession, each sample data is not independent. The historical data is required to better reflect the current interest rate structure.
 For the 4 sets of interest term spreads, we generate lag items for each sample from T-1 to T-10 to provide historical data up to 10 weeks ago. In this way, the impact of historical data is included in each independent sample. In the following analysis , two groups of lagged data—T to T-5 and T to T-10—are respectively generated to compare the influence of different lag terms.
 #### Duration of inversion
-We counted the duration of each inversion and included this feature in each sample to reflect which stage the current sample is in the entire inverted curve. In this feature, 0 represents that it is currently in the positive spread range, and a positive integer indicates that how many weeks it has entered the negative spread period.
+We also counted the duration of each inversion and included this feature in each sample to reflect which stage the current sample is of the entire inverted curve. For this feature, 0 represents that the sample currently has s positive term spread, and a positive integer indicates that how many weeks the inversion has last since the first one appeared.We counted the duration for each term spread, so we have 4 new features corresponding to 4 term preads.
 ## Input description
-Feature | Explaination
+Feature name | Explaination
 ------------ | -------------
-LABEL | Output, indicating if the current interest structure shows certain characteristic associated with recession (introduced in detail below)
-13weeks, 26weeks, 39weeks, 52weeks | Split the *label* output into	quaterly data using dummy variable
-time0_10, time1_20, time1_10, time0_20 | Duration of inversion within each interest spread. *0* indicating 3 months, 1 indicating 1 year, 10 indicating 10 year, 20 indicating 20 year. For example, time0_10 stands for spread between 10-year interest rate and 3-month interst-rate  
-10y-3m,  20y-1y,  10y-1y,  20y-3m | Original interest spread 
-x_0.25, x_1, x_10, x_20 | Original interest of 3-month, 1-year, 10-year and 20-year respectively.
-x_10_0_n, x_20_1_n,	x_10_1_n,	x_20_0_n | The lag term where n indicating T-N
+x_0.25, x_1, x_10, x_20 | Original yield with maturity of 3 months, 1 year, 10 years and 20 years
+10y-3m, 20y-1y, 10y-1y, 20y-3m | interest term spread without lagging
+x_10_0_n | The lag term of 10y-3m, n means T-n term
+x_10_1_n | The lag term of 10y-1y, n means T-n term
+x_20_0_n | The lag term of 20y-3m, n means T-n term
+x_20_1_n | The lag term of 20y-1y, n means T-n term
+time10_0 | Duration weeks of inversion of 10y-3m
+time10_1 | Duration weeks of inversion of 10y-1y
+time20_0 | Duration weeks of inversion of 20y-3m
+time20_1 | Duration weeks of inversion of 20y-1y
 
 ## Output description
 Data processing of output is a challenging problem we face. We mainly face two problems.
@@ -55,6 +59,10 @@ March 2001(I)<br>
 December 2007 (IV)
 
 The average value of the 7 time intervals is about 48. We round it up to take a complete integer year and 52 Week is the time interval for the final division output. Mark the sample within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling. (In order to fully reflect this information, we set a feature on the input to record the duration of inversion)
+Variable name | Explaination
+------------ | -------------
+LABEL | Output, indicating if the current interest structure shows certain characteristic associated with recession (introduced in detail below)
+13weeks, 26weeks, 39weeks, 52weeks | Split the *label* output into	quaterly data using dummy variable
 ## Preprocessing
 #### Drop NaN
 In the data, the US 20-year bond yield from 1987 to 1989 has data missing. Considering the issue of statistical caliber of data, we believe that it is unreasonable to use other methods of data to integrate. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
