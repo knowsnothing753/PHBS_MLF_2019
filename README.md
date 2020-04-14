@@ -61,15 +61,15 @@ December 2007 (IV)
 We then count the interval between the start time of the inversion and the start time of the nearest recession afterward.The average value of the 7 intervals is about 48 weeks, so we believe the interest rates pattern within 48 weeks before a recession have the predictive power, and we round it up to 52 weeks which is integer year. Next, we mark the samples within 52 weeks before the start of each recession as 1, other data as 0, and deal with the problem of data imbalance through Up-Sampling.
 ![Output](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/data/Output.png)
 
-## Preprocessing
+## Data preprocessing
 #### Dropping NaN
 In the data, the data of 20-year bond yield from 1987 to 1989 are missing. However, the 3-month bond yield, 1-year bond yield and 10-year bond yield data are complete during this period. By calculating the spreads of these data, we found that there is no interest rate inversion during this time, so this part of the data is not the main target of our research, and it will not significantly affect our model results. In the independent variables of the model, we express the interest rate structure at a specific time by the duration of the recession and the time lag. Such input can ensure that the model does not apply each individual interest rate separately, but fully considers the overall effect of changes in interest rates. So, this part of the null value will not affect our overall estimate of the interest rate structure. Considering the above issues, we deleted this part of the incomplete data.
 #### Standardization
 Through descriptive analysis results, we found that different yield values are different in size. In order to eliminate the model result error caused by the size of the data itself, we standardized the data.
 #### Up-sampling 
 Considering that economic recession is an unconventional situation, we need to consider the amount of data between the recession and the normal situation. Through statistics, we have a total of 2234 samples, while the number of samples related recession is only 340. In order to eliminate the impact of data imbalance on the model results, we upscaled the recession samples, the data with label=1 in the training set.
-## Training Model and Predicting
-#### Choosing ML Models and Lags
+## Training models and predicting
+#### Choosing ML models and lags
 We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
 * Scenario 1: lag up to T-5  
