@@ -111,7 +111,7 @@ The results of the multi-dimensional output is not good. It shows that the inver
 ## Conclusion
 * The Tree model works better than LR and SVM. 
 * The model with up to T-10 term spread lag is better than T-5. 
-* The 10 years-1 year pair works better than othe spread term.
+* The 10 years-1 year pair works better than other spread term.
 * The inversion is usually accompanied by the recession one year later. 
 * The results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the specific quarter.
 ## Improvement in the future
