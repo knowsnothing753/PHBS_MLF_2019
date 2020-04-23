@@ -115,7 +115,6 @@ The results of the multi-dimensional output is not good. It shows that the inver
 * The inversion is usually accompanied by the recession one year later. 
 * The results of the multi-dimensional output shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the specific quarter.
 ## Improvement in the future
-* Adjusting the hyperparameters of the model through Grid Research to improve the prediction accuracy.
 * We will continue to improve the results of multi-dimensional output, clarify the problems of the current model, and try to build a model that can accurately predict the occurrence time of the recession.
 ## Reference
 Yield curve inversion: a recession indicator. from https://github.com/PHBS/MLF/wiki/Yield-curve-inversion:-a-recession-indicator
