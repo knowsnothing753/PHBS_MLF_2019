@@ -72,7 +72,7 @@ Considering that economic recession is an unconventional situation, we need to c
 #### Choosing ML models and lags
 We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
-* Scenario 1: lag up to T-5  
+* [Scenario 1: lag up to T-5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/univariate_T5.ipynb)  
 
   * Input:   
     * 4 types of yeild with different maturities  
