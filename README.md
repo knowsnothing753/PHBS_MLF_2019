@@ -72,7 +72,7 @@ Considering that economic recession is an unconventional situation, we need to c
 #### Choosing ML models and lags
 We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1 score(on single test data) and confusion matrix to assess model performance.
 
-* Scenario 1: lag up to T-5  
+* [Scenario 1: lag up to T-5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/univariate_T5.ipynb)  
 
   * Input:   
     * 4 types of yeild with different maturities  
@@ -83,7 +83,7 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
   * Output:
 ![T5_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/T5_4.PNG)
 
-* Scenario 2: lag up to T-10    
+* [Scenario 2: lag up to T-10](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/univariate_T10.ipynb)    
 
   * Input:  
     * 4 types of yeild with different maturities   
@@ -100,7 +100,7 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
 ![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/10vs5.PNG)
 
 #### Different term spread
-We also compare the results between different term spread，i.e., we take only one set of term spread as inuput at a time. Specifically, we first take 10 years-3 months term spread and its corresponding lag term and duration of inversion as input to get one result, then 10 years-1 year, 20 years-3 months, and 20 years-1 year.
+We also compare the results between different term spread，i.e., we take only one set of term spread as inuput at a time. Specifically, we first take [10 years-3 months](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/10_0_T10.ipynb) term spread and its corresponding lag term and duration of inversion as input to get one result, then [10 years-1 year](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/10_1_T10.ipynb), [20 years-3 months](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/20_0_T10.ipynb), and [20 years-1 year](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/20_1_T10.ipynb).
 ![5Scen](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/5Scen.PNG)
 
 #### Multi-dimensional Output 
