@@ -99,8 +99,13 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
 * When we compare the results between the 2 scenarios.The results of scenario 2 is always better than scenario 1, which means T-10(the spread lags up to 10 weeks) performs better.
 ![10vs5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/10vs5.PNG)
 
-LR | SVM | Tree
------------- | ------------- | ------------- | ------------- | ------------- | -------------
+|   | :LR:        |         :SVM: |        :Tree: |
+|---|------------| -------------|-------------|
+|Parameters|'''C=1.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='auto', n_jobs=None, penalty='l2',
+                   random_state=None, solver='lbfgs', tol=0.0001, verbose=0,
+                   warm_start=False''' |||
 cv accuracy | F1 | cv accuracy | F1 | cv accuracy | F1 | 
 x_0.25, x_1, x_10, x_20 | Original yield with maturity of 3 months, 1 year, 10 years and 20 years
 10y-3m, 20y-1y, 10y-1y, 20y-3m | Interest term spread without lagging
