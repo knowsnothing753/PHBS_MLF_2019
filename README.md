@@ -106,11 +106,19 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
 We also compare the results between different term spread，i.e., we take only one set of term spread as inuput at a time. Specifically, we first take [10 years-3 months](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/10_0_T10.ipynb) term spread and its corresponding lag term and duration of inversion as input to get one result, then [10 years-1 year](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/10_1_T10.ipynb), [20 years-3 months](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/20_0_T10.ipynb), and [20 years-1 year](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/20_1_T10.ipynb).
 ![5Scen](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/5Scen.PNG)
 
+
 #### Multi-dimensional Output 
 We divided the 52-week sample before the recession into 4 parts to predict a more accurate time. Mark the sample as 0 within 52 to 39 weeks before the start of each recession, as 1 within 39 to 26 weeks, as 2 within 26 to 13 weeks, and as 3 within 13 weeks.
 Output of 2 scenarios (T-5, T-10):
 ![multi_cm](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/multi_cm.PNG)
 The results of the multi-dimensional output is not good. It shows that the inverted curve can only predict the recession in about a year, but it cannot accurately predict the accurate time.
+## Outcome analysis 
+This is how tree works in scenario 2.In the picture, X[0]~X[3] mean duration of inversion, X[4]~X[7] mean yield spread without lag, X[8]~X[11] mean original bond yield with different maturities, X[12]~X[51] mean yield spread with max lag 10.In the decision structure, yield spread is wildly used, but <0 is not the criteria, usually the decision boundary is between 0 and 1. This means spread can explain recession but it doesn’t have to be inversion, as long as the yield difference between long-term bond and short-term bond is smaller than 1, it can be a sign of recession.
+![allT10](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/allT10.png "scenario 2")
+
+This is how tree works when we only take 10years-1year as input. In the picture, X[0] means duration of inversion, X[1] means yield spread without lag, X[2] and X[3] mean original bond yield with different maturities.Similarly, yield spread is wildly used in the decision structure, and the decision boundary for the node is usually between 0~1. But this time, we also find another interesting outcome, the original yield of 10-years and 1-year bond are often used (11 times out of 41 branching nodes). It shows that the original yield of these two bonds also have predictive power.
+![10-1](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/10-1.png "scenario 2")
+
 ## Conclusion
 * The Tree model works better than LR and SVM. 
 * The model with up to T-10 term spread lag is better than T-5. 
