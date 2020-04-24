@@ -81,7 +81,7 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
     * duration of inversion for each spread  
 
   * Output:
-![T5_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/T5_4.PNG)
+![T5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/T5.PNG)
 
 * [Scenario 2: lag up to T-10](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/univariate_T10.ipynb)    
 
@@ -92,7 +92,7 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
     * duration of inversion for each spread  
 
   * Output:
-![T10_4](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/T10_4.PNG)
+![T10](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/T10.PNG)
 
 * When we compare the results between the three models under 2 scenarios,  CV accuracy and F1 score of Tree model are always better than the others. The tree model works best.
 
