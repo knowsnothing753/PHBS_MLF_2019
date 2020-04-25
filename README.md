@@ -84,7 +84,7 @@ We tried three models(LR,SVM and Tree), and use CV accuracy(F1 score method), F1
   
 ![T5](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/figure/T5.png)
 
-* [Scenario 2: lag up to T-10](https://github.com/knowsnothing753/PHBS_MLF_2019//master/code/univariate_T10.ipynb)    
+* [Scenario 2: lag up to T-10](https://github.com/knowsnothing753/PHBS_MLF_2019/blob/master/code/univariate_T10.ipynb)    
 
   * Input:  
     * 4 types of yeild with different maturities   
